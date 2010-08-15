@@ -1,0 +1,1 @@
+A WPF sample application demonstrating an attached property to set an toolbarbutton overlay
