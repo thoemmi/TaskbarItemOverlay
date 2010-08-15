@@ -1,0 +1,28 @@
+﻿<Window x:Class="WpfApplication1.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:src="clr-namespace:WpfApplication1" Title="MainWindow" Height="350" Width="525">
+	<Window.Resources>
+		<DataTemplate x:Key="OverlayIcon">
+			<Grid Width="16" Height="16">
+				<Ellipse 
+                    Fill="Red" 
+                    Stroke="White" 
+                    StrokeThickness=".5" />
+				<TextBlock 
+                    Text="{Binding}" 
+                    TextAlignment="Center" 
+                    Foreground="White" 
+                    FontWeight="Bold" 
+                    Height="16" 
+                    VerticalAlignment="Center" 
+                    FontSize="10"/>
+			</Grid>
+		</DataTemplate>
+	</Window.Resources>
+	<Window.TaskbarItemInfo>
+		<TaskbarItemInfo 
+            src:TaskbarItemOverlay.Content="{Binding Count}" 
+            src:TaskbarItemOverlay.Template="{StaticResource OverlayIcon}" />
+	</Window.TaskbarItemInfo>
+	<Viewbox>
+		<TextBlock Text="{Binding Count}" />
+	</Viewbox>
+</Window>
